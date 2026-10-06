@@ -1,1 +1,1 @@
-# personal-projects
+`AsphaltPacks.py` - uses pack drop rates to calculate the probability distribution of opening bundles of 10 until X amount of blueprints obtained. Also displays probability of getting X blueprint in a certain budget
