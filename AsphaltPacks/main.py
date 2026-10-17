@@ -145,7 +145,7 @@ def cumulative_probability_plot(bundles_opened: np.ndarray,
 
 if __name__ == "__main__":
 
-    "Your Needs"
+    "How many blueprints needed?"
     goal_blueprints = 191
     """
     Multi Pack Specs
@@ -174,8 +174,7 @@ if __name__ == "__main__":
                                                  goal_blueprints, 
                                                  simulations)
     
-if __name__ == "__main__":
-    "Your Needs"
+    "What is the budget and bundle cost?"
     budget = 24000
     bundle_cost = 750
 
@@ -184,3 +183,4 @@ if __name__ == "__main__":
     end_time = time.perf_counter()
     execution_time = end_time - start_time
     print(f'code ran in {execution_time:.3f}s')
+    
