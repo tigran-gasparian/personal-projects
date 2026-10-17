@@ -12,6 +12,9 @@ unique_bundles has gaps. There needs to be a way to prevent them
 import math
 import numpy as np
 import matplotlib.pyplot as plt
+import time
+
+start_time = time.perf_counter()
 
 def get_3_car_hunt_pack(Prob_featured: int):
     """Calculates the exact PMF of a single 3-pack bundle won in a car hunt race."""
@@ -79,11 +82,12 @@ def run_simulation(pmf: np.ndarray,
                    simulations: int
                    ) -> np.ndarray:
     "Monte Carlo of player opening buldles until they get goal_blueprints"
-    
+
     all_rewards = np.arange(len(pmf))
+    
     obtained_blueprints = np.zeros(simulations, dtype=int)
     bundles_opened = np.zeros(simulations, dtype=int)  
-    active = np.ones(simulations, dtype=bool)  
+    active = np.ones(simulations, dtype=bool) 
 
     while np.any(active):
         num_active = np.sum(active)
@@ -91,7 +95,6 @@ def run_simulation(pmf: np.ndarray,
             all_rewards, 
             p=pmf, 
             size=num_active)
-        
         obtained_blueprints[active] += rewards
         bundles_opened[active] += 1  
         active[active] = obtained_blueprints[active] < goal_blueprints
@@ -139,20 +142,22 @@ def cumulative_probability_plot(bundles_opened: np.ndarray,
                fontweight='semibold',fontfamily="Arial")
     plt.xlabel("Number of 10-Pack Bundles Purchased",
                fontsize=16, fontweight='semibold',fontfamily="Arial")
-    plt.show()
+    #plt.show()
+    plt.savefig("/Users/tigrangasparian/Downloads/high_res_graph.png", 
+            dpi=150, bbox_inches="tight",transparent=True)
 
 if __name__ == "__main__":
 
     "Your Needs"
-    goal_blueprints = 109
+    goal_blueprints = 191
     """
     Multi Pack Specs
     
-    N_cars is the amount of featured cars
+    N_cars is the amount of featured cars (only for multi packs)
     Prob_featured is the probability of getting any of the featured cars
     """
-    N_cars=6
-    Prob_featured=0.20
+    N_cars=1
+    Prob_featured=0.10
     
     """
     Choose type of pack
@@ -162,8 +167,8 @@ if __name__ == "__main__":
     get_10_multi_pack_distribution(): is for opening multi packs
     """
     #ten_pack_pmf = get_3_car_hunt_pack(Prob_featured)
-    #ten_pack_pmf = get_10_pack_distribution(Prob_featured)
-    ten_pack_pmf = get_10_multi_pack_distribution(N_cars,Prob_featured)
+    ten_pack_pmf = get_10_pack_distribution(Prob_featured)
+    #ten_pack_pmf = get_10_multi_pack_distribution(N_cars,Prob_featured)
     
     "Monte Carlo Parameter"
     simulations = 1000_000
@@ -171,11 +176,14 @@ if __name__ == "__main__":
     bundles_opened, simulations = run_simulation(ten_pack_pmf,
                                                  goal_blueprints, 
                                                  simulations)
-    #%%
+    
 if __name__ == "__main__":
     "Your Needs"
-    budget = 45000
-    bundle_cost = 600
+    budget = 24000
+    bundle_cost = 750
 
     cumulative_probability_plot(bundles_opened, budget,
                                 bundle_cost, goal_blueprints)
+    end_time = time.perf_counter()
+    execution_time = end_time - start_time
+    print(f'code ran in {execution_time:.3f}s')
