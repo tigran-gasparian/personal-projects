@@ -1,4 +1,4 @@
-#Functions within `AsphaltPacks.py`
+# Functions within `AsphaltPacks.py`
 
 `get_3_car_hunt_pack`, `get_10_pack_distribution` and `get_10_multi_pack_distribution` convolve probability functions of opening a single pack into probability functions of opening the whole bundle.
 
