@@ -5,9 +5,6 @@ Created on Sun Jul 19 00:05:30 2026
 
 @author: tigrangasparian
 """
-"""
-unique_bundles has gaps. There needs to be a way to prevent them
-"""
 
 import math
 import numpy as np
