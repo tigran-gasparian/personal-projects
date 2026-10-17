@@ -4,7 +4,7 @@
 
 `run_simulation` use one of the previous functions and vectorisation to simulate players opening the bundles until they reach a goal. 
 
-Its output is a probability function on amount of bundles to open before obtaining X blueprints
+`cumulative_probability_plot` outputs a probability function on amount of bundles to open before obtaining X blueprints
 
 <img width="1289" height="718" alt="high_res_graph" src="https://github.com/user-attachments/assets/fb31dab4-2ea7-494e-8156-c8619213371b" />
 
