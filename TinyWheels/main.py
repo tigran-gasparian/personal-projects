@@ -14,7 +14,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-IMAGE_DIR = Path("/Users/tigrangasparian/Saved/More/TW results")
+IMAGE_DIR = Path("Files")
 POSITION_POINTS = {1: 14,
                    2: 11,
                    3: 9,
