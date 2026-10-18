@@ -28,9 +28,9 @@ POSITION_POINTS = {1: 14,
                    11: 0,
                    12: 0}
 
-BEST_LAP_POINTS = {1: 0,
-                   2: 0,
-                   3: 0,
+BEST_LAP_POINTS = {1: 6,
+                   2: 3,
+                   3: 1,
                    4: 0,
                    5: 0,
                    6: 0,
@@ -132,6 +132,7 @@ def main():
     results_df.index = results_df.index + 1
     results_df['Total Pts'] = results_df['Total Pts'].astype(int)
 
+    print("Final Results")
     print("```")
     for rank, row in results_df.iterrows():
         print(f"{rank:<3}{row['Name']:<{results_df['Name'].str.len().max() + 2}}{row['Total Pts']}")
