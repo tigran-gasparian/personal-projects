@@ -1,3 +1,8 @@
+# AsphaltPacks
+
+This code is meant to create a probability distribution of the required amount of opening bundles (or tokens spent) before getting enough blueprints. It does so with convoluting the first 9 and the 10th pack in a bundle and simulating million players opening packs until they get enough blueprints.
+
+## Functions
 `get_3_car_hunt_pack`, `get_10_pack_distribution` and `get_10_multi_pack_distribution` convolve probability functions of opening a single pack into probability functions of opening the whole bundle.
 
 `run_simulation` use one of the previous functions and vectorisation to simulate players opening the bundles until they reach a goal. 
